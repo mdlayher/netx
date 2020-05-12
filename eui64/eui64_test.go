@@ -68,12 +68,12 @@ func TestParseIP(t *testing.T) {
 			}
 
 			// Verify input value was not modified
-			if want, got := origIP, tt.ip; !bytes.Equal(want, got) {
+			if want, got := origIP, tt.ip; !want.Equal(got) {
 				t.Fatalf("IP was modified:\n- want: %v\n-  got: %v",
 					want, got)
 			}
 
-			if want, got := tt.prefix, prefix; !bytes.Equal(want, got) {
+			if want, got := tt.prefix, prefix; !want.Equal(got) {
 				t.Fatalf("unexpected IPv6 prefix:\n- want: %v\n-  got: %v",
 					want, got)
 			}
@@ -192,7 +192,7 @@ func TestParseMAC(t *testing.T) {
 		}
 
 		// Verify input values were not modified
-		if want, got := origPrefix, tt.prefix; !bytes.Equal(want, got) {
+		if want, got := origPrefix, tt.prefix; !want.Equal(got) {
 			t.Fatalf("[%02d] test %q, prefix was modified:\n- want: %v\n-  got: %v",
 				i, tt.desc, want, got)
 		}
@@ -201,7 +201,7 @@ func TestParseMAC(t *testing.T) {
 				i, tt.desc, want, got)
 		}
 
-		if want, got := tt.ip, ip; !bytes.Equal(want, got) {
+		if want, got := tt.ip, ip; !want.Equal(got) {
 			t.Fatalf("[%02d] test %q, unexpected IPv6 address:\n- want: %v\n-  got: %v",
 				i, tt.desc, want, got)
 		}
