@@ -79,7 +79,6 @@ func TestListenerAddr(t *testing.T) {
 	if diff := cmp.Diff("127.0.0.1:80,[::1]:80,/tmp/foo", got); diff != "" {
 		t.Fatalf("unexpected string output (-want +got):\n%s", diff)
 	}
-
 }
 
 func TestListenerHTTP(t *testing.T) {

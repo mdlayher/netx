@@ -11,7 +11,7 @@ import (
 // TestParseIP verifies that ParseIP generates appropriate output IPv6 prefixes
 // and MAC addresses for input IP addresses.
 func TestParseIP(t *testing.T) {
-	var tests = []struct {
+	tests := []struct {
 		desc   string
 		ip     net.IP
 		prefix net.IP
@@ -88,7 +88,7 @@ func TestParseIP(t *testing.T) {
 // TestParseMAC verifies that ParseMAC generates appropriate output IPv6
 // addresses for input IPv6 prefixes and EUI-48 or EUI-64 MAC addresses.
 func TestParseMAC(t *testing.T) {
-	var tests = []struct {
+	tests := []struct {
 		desc   string
 		prefix net.IP
 		mac    net.HardwareAddr
