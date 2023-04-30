@@ -5,7 +5,6 @@ import (
 	"errors"
 	"fmt"
 	"io"
-	"io/ioutil"
 	"net"
 	"net/http"
 	"net/url"
@@ -309,7 +308,7 @@ func httpGet(t *testing.T, addr net.Addr) string {
 		t.Fatalf("expected HTTP 200, but got HTTP %d", res.StatusCode)
 	}
 
-	b, err := ioutil.ReadAll(io.LimitReader(res.Body, 1024))
+	b, err := io.ReadAll(io.LimitReader(res.Body, 1024))
 	if err != nil {
 		t.Fatalf("failed to read HTTP body: %v", err)
 	}
